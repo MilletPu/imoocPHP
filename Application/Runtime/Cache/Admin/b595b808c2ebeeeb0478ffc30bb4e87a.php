@@ -91,7 +91,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">
-                    您好!欢迎使用singcms内容管理平台
+                    您好!欢迎使用milletpu内容管理平台
                 </h1>
                 <ol class="breadcrumb">
                     <li class="active">
