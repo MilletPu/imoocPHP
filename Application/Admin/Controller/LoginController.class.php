@@ -18,13 +18,13 @@ class LoginController extends Controller {
         //为了安全起见，在服务器端也要进行判断。
 
         //$_POST用于收集来自 method="post" 的表单form中的值，index.html中。
-        $username = $_POST['username'];
-        $password = $_POST['password'];
+        $username = I('get.username'); //$_POST['username'];
+        $password = I('get.password'); //$_POST['password'];
         if(!trim($username)){
-            return show(0,'用户名不能为空的');
+            return show(0,'用户名不能为空！');
         }
         if(!trim($password)){
-            return show(0,'密码不能为空的');
+            return show(0,'密码不能为空！');
         }
     }
 }
