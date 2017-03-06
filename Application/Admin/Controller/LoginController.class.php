@@ -14,10 +14,11 @@ class LoginController extends Controller {
     }
 
     public function check(){
-        //在前端login.js已经进行了是否为空的判断；
-        //为了安全起见，在服务器端也要进行判断。
+        // "/index.php?m=admin&c=login&a=check"
+        // 在前端login.js已经进行了是否为空的判断；
+        // 为了安全起见，在服务器端也要进行判断。
 
-        //$_POST用于收集来自 method="post" 的表单form中的值，index.html中。
+        // $_POST用于收集来自 method="post" 的表单form中的值，index.html中。
         $username = I('get.username'); //$_POST['username'];
         $password = I('get.password'); //$_POST['password'];
         if(!trim($username)){
