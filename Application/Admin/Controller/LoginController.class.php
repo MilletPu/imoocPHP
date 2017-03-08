@@ -28,7 +28,7 @@ class LoginController extends Controller {
             return show(0,'密码不能为空！');
         }
 
-        $ret = D('admin')->getAdminByUsername($username);
+        $ret = D('Admin')->getAdminByUsername($username); //Admin是Model名
         print_r($ret);
     }
 }

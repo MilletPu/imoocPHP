@@ -12,10 +12,10 @@
 
   <title>milletppp内容管理平台</title>
 
-  <!-- Bootstrap core CSS -->
+  <!-- !!!!!!!!!!Bootstrap core CSS!!!!!!!!!!! -->
   <link href="/Public/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom styles for this template -->
-  <!--<link href="signin.css" rel="stylesheet">-->
+  <link href="signin.css" rel="stylesheet">
 
 
 
