@@ -33,9 +33,13 @@ class LoginController extends Controller {
         //Admin是Model名
         //D方法用于实例化用户定义的模型类。可以调用验证机制 ，会查询到同名 Model类，自动验证、自动填充、关联查询，D的用处很多
         //M方法用于高效实例化一个基础模型类，就是一个原生态的new Model()
-        $ret = D('Admin')->getAdminByUsername($username);
-        if (!$ret){
-            return show(0,'该用户不存在！');
-        }
+        $ret = D('Admin') -> getAdminByUsername($username);
+        if (!$ret)
+            return show(0, '该用户不存在！');
+
+        if($ret['password'] != getMd5Password($password))
+            return show(0, '密码错误！');
+
+        return show(1, '登录成功！');
     }
 }
