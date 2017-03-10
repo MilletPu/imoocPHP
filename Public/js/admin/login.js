@@ -21,7 +21,7 @@ var login = {
         var url = "/index.php?m=admin&c=login&a=check"; //此check为LoginController.class.php中的check()
         var data = {'username':username, "password":password};
         $.post(url,data,function(result){
-            if(result.status == 1){
+            if(result.status == 0){
                 return dialog.error(result.message);
             }
             if(result.status == 1){
