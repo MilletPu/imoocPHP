@@ -18,6 +18,7 @@ class LoginController extends Controller {
         // 在前端login.js已经进行了是否为空的判断；
         // 为了安全起见，在服务器端也要进行判断。
 
+
         // $_POST用于收集来自 method="post" 的表单form中的值，index.html中。
         $username = $_POST['username'];
         $password = $_POST['password'];
@@ -28,7 +29,13 @@ class LoginController extends Controller {
             return show(0,'密码不能为空！');
         }
 
-        $ret = D('Admin')->getAdminByUsername($username); //Admin是Model名
-        print_r($ret);
+
+        //Admin是Model名
+        //D方法用于实例化用户定义的模型类。可以调用验证机制 ，会查询到同名 Model类，自动验证、自动填充、关联查询，D的用处很多
+        //M方法用于高效实例化一个基础模型类，就是一个原生态的new Model()
+        $ret = D('Admin')->getAdminByUsername($username);
+        if (!$ret){
+            return show(0,'该用户不存在！');
+        }
     }
 }
