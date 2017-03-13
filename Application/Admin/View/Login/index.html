@@ -50,7 +50,7 @@
 <script src="/Public/js/dialog/layer.js"></script>
 <script src="/Public/js/dialog.js"></script>
 
-<script src = /Public/js/admin/login.js></script>
+<script src = /Public/js/admin/login.js?v=1.2"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 </body>
 </html>

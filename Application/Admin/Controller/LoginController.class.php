@@ -10,7 +10,11 @@ use Think\Controller;
 class LoginController extends Controller {
 
     public function index(){
-    	return $this->display();
+        if(session('adminUser')){
+            //如果已经登录了，直接调到后台首页，不用登录了
+            redirect('/admin.php?c=index');
+        }
+        $this->display();
     }
 
     public function check(){
@@ -18,8 +22,7 @@ class LoginController extends Controller {
         // 在前端login.js已经进行了是否为空的判断；
         // 为了安全起见，在服务器端也要进行判断。
 
-
-        // $_POST用于收集来自 method="post" 的表单form中的值，index.html中。
+        // $_POST用于收集来自 method="post"的表单form中的值（index.html中）/ ajax $.post (login.js)来的数据。
         $username = $_POST['username'];
         $password = $_POST['password'];
         if(!trim($username)){
@@ -28,7 +31,6 @@ class LoginController extends Controller {
         if(!trim($password)){
             return show(0,'密码不能为空！');
         }
-
 
         //Admin是Model名
         //D方法用于实例化用户定义的模型类。可以调用验证机制 ，会查询到同名 Model类，自动验证、自动填充、关联查询，D的用处很多
@@ -40,6 +42,12 @@ class LoginController extends Controller {
         if($ret['password'] != getMd5Password($password))
             return show(0, '密码错误！');
 
+        session('adminUser', $ret);
         return show(1, '登录成功！');
+    }
+
+    public function logout(){
+        session('adminUser', null);
+        redirect('/admin.php?c=login');
     }
 }

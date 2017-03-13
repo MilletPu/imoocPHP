@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>sing后台管理平台</title>
+    <title>MilletPPP后台管理平台</title>
     <!-- Bootstrap Core CSS -->
     <link href="/Public/css/bootstrap.min.css" rel="stylesheet">
 
@@ -63,7 +63,7 @@
        
         <li class="divider"></li>
         <li>
-          <a href="/admin.php?c=login&a=loginout"><i class="fa fa-fw fa-power-off"></i> 退出</a>
+          <a href="/admin.php?c=login&a=logout"><i class="fa fa-fw fa-power-off"></i> 退出</a>
         </li>
       </ul>
     </li>
@@ -72,10 +72,10 @@
   <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav side-nav nav_list">
       <li >
-        <a href=""><i class="fa fa-fw fa-dashboard"></i> 首页</a>
+        <a href="/admin.php?c=index"><i class="fa fa-fw fa-dashboard"></i> 首页</a>
       </li>
       <li>
-        <a href=""><i class="fa fa-fw fa-bar-chart-o"></i>菜单管理</a>
+        <a href="/admin.php?c=menu"><i class="fa fa-fw fa-bar-chart-o"></i>菜单管理</a>
       </li>
 
     </ul>
