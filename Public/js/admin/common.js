@@ -6,9 +6,12 @@
  */
 
 $("#button-add").click(function(){
+    //index.html
 
     var url = SCOPE.add_url;
-    window.location.href = url; //点击添加按钮后，跳转到表单页面
+    window.location.href = url;
+    // 这里是【调用add方法】'/admin.php?c=menu&a=add'
+    // 但是刚开始时没有接受到$_POST参数，else所以$this->display()到add.html页面
 
 });
 
@@ -20,8 +23,9 @@ $("#button-add").click(function(){
  * milletpu
  */
 $("#singcms-button-submit").click(function(){
+    //add.html
 
-    //获取form表单的数据，根据表单的id为singcms-form
+    //获取singcms-form这个表单的数据，根据表单的id为singcms-form
     var data = $("#singcms-form").serializeArray();
     postData = {};
     $(data).each(function(i){
@@ -33,6 +37,7 @@ $("#singcms-button-submit").click(function(){
     url = SCOPE.save_url;
     jump_url = SCOPE.jump_url;
     $.post(url, postData, function(result){
+        //这里是【提交数据】到'/admin.php?c=menu&a=addFunc'
         if (result.status == 1) {
             return dialog.success(result.message, jump_url);
         } else if (result.status == 0) {

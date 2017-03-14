@@ -24,14 +24,19 @@ class MenuController extends Controller {
             if ($menuId){
                 return show(1,'新增成功',$menuId);
             }
+
             return show(0,'新增失败',$menuId);
 
+
         }else {
-            $this->display();
+            $this->display();   //自动去找同名的add.html网页。
+                                //没有参数，模板名称与当前操作方法名称一致。
+
         }
     }
 
     public function index(){
         $this->display();
+
     }
 }
