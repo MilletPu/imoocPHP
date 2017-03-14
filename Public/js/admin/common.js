@@ -10,7 +10,7 @@ $("#button-add").click(function(){
 
     var url = SCOPE.add_url;
     window.location.href = url;
-    // 这里是【调用add方法】'/admin.php?c=menu&a=add'
+    // 这里也是【调用add()方法】（'/admin.php?c=menu&a=add'）
     // 但是刚开始时没有接受到$_POST参数，else所以$this->display()到add.html页面
 
 });
@@ -33,11 +33,12 @@ $("#singcms-button-submit").click(function(){
     });
     console.log(postData); //
 
-    //将获取的数据Ajax $.post给服务器，MenuController中$_POST进行接收
+    // 将获取的数据Ajax $.post给服务器，MenuController中$_POST进行接收
     url = SCOPE.save_url;
     jump_url = SCOPE.jump_url;
     $.post(url, postData, function(result){
-        //这里是【提交数据】到'/admin.php?c=menu&a=addFunc'
+        // 这里是【提交数据】到'/admin.php?c=menu&a=add'方法中
+        // 但是接受到$_POST数据了，所以开始处理数据并返回给下面的回调result
         if (result.status == 1) {
             return dialog.success(result.message, jump_url);
         } else if (result.status == 0) {
