@@ -30,6 +30,7 @@ class MenuController extends Controller {
         }else {
             $this->display();   //自动去找同名的add.html网页。
                                 //没有参数，模板名称与当前操作方法名称一致。
+                                //如果没有这一句，common.js中的 window.location.href = /admin.php?c=menu&a=add; 就打不开
         }
     }
 
