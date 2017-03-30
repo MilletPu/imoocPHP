@@ -7,7 +7,7 @@ class MenuController extends Controller {
 
     public function add(){
         if($_POST){
-            if(!isset($_POST['name']) || !$_POST['name']){
+            if(!isset($_POST['name']) || !$_POST['name']){ //用于收集来自method="post"的表单中的值(add.html，函数同名模板)
                 return show(0, '菜单名不能为空'); //return给common.js中的result
             }
             if(!isset($_POST['m']) || !$_POST['m']){
@@ -35,6 +35,23 @@ class MenuController extends Controller {
     }
 
     public function index(){
+        /**
+         * 分页操作逻辑
+         */
+
+        //获取html数据
+        $page = $_REQUEST['p'] ? $_REQUEST['p'] : 1; //没有接收到，就第一页
+        $pageSize = $_REQUEST['pageSize'] ? $_REQUEST['pageSize'] : 3; //没有接收到，就默认三行
+
+        //获取Menu表数据
+        $data = array();
+        $menus = D("Menu")->getMenus($data,$page,$pageSize);
+        $menusCount = D("Menu")->getMenusCount($data);
+
+        $res = new \Think\Page($menusCount, $pageSize);
+        $pageRes = $res->show();
+        $this->assign('pageRes', $pageRes);
+        $this->assign('menus', $menus); //'menus'写在index.html的volist
         $this->display();
 
     }
