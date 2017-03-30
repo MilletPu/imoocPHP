@@ -40,7 +40,7 @@ class MenuController extends Controller {
          */
 
         //获取html数据
-        $page = $_REQUEST['p'] ? $_REQUEST['p'] : 1; //没有接收到，就第一页
+        $page = $_REQUEST['p'] ? $_REQUEST['p'] : 1; //没有接收到，就第一页；p是thinkphp自动的翻页页码参数
         $pageSize = $_REQUEST['pageSize'] ? $_REQUEST['pageSize'] : 3; //没有接收到，就默认三行
 
         //获取Menu表数据
